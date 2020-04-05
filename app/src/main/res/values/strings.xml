@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Qponer</string>
+
+    <string name="title_login">Login</string>
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button_text">Login</string>
+
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

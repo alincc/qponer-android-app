@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="bg.qponer.android.data.model.BusinessOwner" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/businessOwnerAvatar"
+                android:layout_width="0dp"
+                android:layout_height="194dp"
+                android:imageUrl="@{item.avatarUrl}"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/businessOwnerNameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:businessType="@{item.type}"
+                android:drawableStart="@drawable/ic_local_bar_black_24dp"
+                android:drawablePadding="8dp"
+                android:includeFontPadding="false"
+                android:text="@{item.businessName}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/businessOwnerAvatar"
+                tools:text="Title goes here" />
+
+            <TextView
+                android:id="@+id/businessOwnerDescriptionTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{item.businessDescription}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintEnd_toEndOf="@id/businessOwnerNameTextView"
+                app:layout_constraintStart_toStartOf="@id/businessOwnerNameTextView"
+                app:layout_constraintTop_toBottomOf="@id/businessOwnerNameTextView"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie vehicula facilisis. Fusce commodo eros ut tempus varius. Suspendisse potenti. Nam aliquet nibh mauris, sit amet ultricies odio malesuada a. Nam eleifend dolor id elit rutrum accumsan. Curabitur vitae sem libero. Morbi bibendum ligula dapibus, facilisis erat vel, pulvinar libero. Vestibulum a aliquam urna, nec porta augue. Fusce viverra, orci id blandit vestibulum, neque ipsum efficitur est, id mattis augue elit non justo." />
+
+            <ImageView
+                android:id="@+id/businessOwnerBuyVoucherButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_card_membership_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/businessOwnerDescriptionTextView" />
+
+            <ImageView
+                android:id="@+id/businessOwnerViewLeadersButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_sort_black_24dp"
+                app:layout_constraintEnd_toStartOf="@id/businessOwnerBuyVoucherButton"
+                app:layout_constraintTop_toTopOf="@id/businessOwnerBuyVoucherButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
