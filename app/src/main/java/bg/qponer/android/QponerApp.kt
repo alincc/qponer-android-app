@@ -8,6 +8,7 @@ import bg.qponer.android.data.repository.RepositoryModule
 import bg.qponer.android.data.service.ServiceModule
 import bg.qponer.android.network.NetworkModule
 import bg.qponer.android.ui.businesses.BusinessesViewModel
+import bg.qponer.android.ui.home.HomeViewModel
 import bg.qponer.android.ui.login.LoginViewModel
 
 class QponerApp : Application() {
@@ -37,6 +38,7 @@ class ViewModelFactory(
             BusinessesViewModel::class.java -> BusinessesViewModel(
                 repoModule.createBusinessOwnerRepository()
             )
+            HomeViewModel::class.java -> HomeViewModel(repoModule.createContributorRepository())
             else -> throw IllegalArgumentException("Unknown view model class: ${modelClass.canonicalName}")
         } as T
 

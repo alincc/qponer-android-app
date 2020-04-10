@@ -29,7 +29,7 @@ class AuthRepository(
                 return@runServiceMethod AuthenticatedUserModel(
                     userResponse.id,
                     userResponse.name
-                )
+                ).also { sessionStore.user = it }
             } else {
                 throw InvalidUserType()
             }

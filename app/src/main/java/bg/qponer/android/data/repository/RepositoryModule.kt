@@ -16,4 +16,8 @@ class RepositoryModule(
     fun createBusinessOwnerRepository() = BusinessOwnerRepository(
         serviceModule.createBusinessOwnerService()
     )
+
+    fun createContributorRepository() = ContributorRepository(
+        serviceModule.createContributorService()
+    )
 }
