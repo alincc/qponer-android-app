@@ -32,8 +32,7 @@ class HomeFragment : Fragment() {
             }
         })
 
-
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     private fun navigateToLogin() = findNavController().navigate(R.id.navigation_login)

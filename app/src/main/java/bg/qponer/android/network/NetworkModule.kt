@@ -22,22 +22,13 @@ class NetworkModule(
 
     private fun createRetrofit(moshi: Moshi, session: SessionStore): Retrofit {
         val httpClient = OkHttpClient.Builder()
+            .addInterceptor(RequestAuthorizationInterceptor(session))
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
                     level =
                         if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
                 }
             )
-            .addInterceptor {
-                val request = session.jwtToken?.let { jwtToken ->
-                    it.request()
-                        .newBuilder()
-                        .addHeader("Authorization", "Bearer $jwtToken")
-                        .build()
-                } ?: it.request()
-
-                it.proceed(request)
-            }
             .build()
 
         return Retrofit.Builder()

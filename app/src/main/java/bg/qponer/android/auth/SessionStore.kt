@@ -4,7 +4,11 @@ import bg.qponer.android.data.model.AuthenticatedUserModel
 
 interface SessionStore {
 
-    var jwtToken: String?
+    var accessToken: String?
+
+    var expirationTime: Long?
+
+    var refreshToken: String?
 
     var user: AuthenticatedUserModel?
 }

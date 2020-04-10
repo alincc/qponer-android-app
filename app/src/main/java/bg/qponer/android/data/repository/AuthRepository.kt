@@ -1,12 +1,12 @@
 package bg.qponer.android.data.repository
 
-import bg.qponer.android.data.InvalidUserType
 import bg.qponer.android.auth.SessionStore
-import bg.qponer.android.data.dto.LoginRequest
+import bg.qponer.android.data.InvalidUserType
 import bg.qponer.android.data.dto.UserType
 import bg.qponer.android.data.model.AuthenticatedUserModel
 import bg.qponer.android.data.service.AuthService
 import bg.qponer.android.util.Result
+import java.util.*
 
 class AuthRepository(
     private val authService: AuthService,
@@ -17,12 +17,18 @@ class AuthRepository(
 
     suspend fun login(username: String, password: String): Result<AuthenticatedUserModel> =
         runServiceMethod {
-            val response = authService.login(LoginRequest(username, password))
-            if (UserType.CONTRIBUTOR == response.type) {
-                sessionStore.jwtToken = response.jwt
+            authService.login(username, password).also {
+                sessionStore.accessToken = it.accessToken
+                sessionStore.expirationTime = Calendar.getInstance().apply {
+                    add(Calendar.SECOND, it.expiresIn)
+                }.timeInMillis
+            }
+
+            val userResponse = authService.me()
+            if (UserType.CONTRIBUTOR == userResponse.type) {
                 return@runServiceMethod AuthenticatedUserModel(
-                    response.customerId,
-                    response.username
+                    userResponse.id,
+                    userResponse.name
                 )
             } else {
                 throw InvalidUserType()
