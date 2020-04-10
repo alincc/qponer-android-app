@@ -6,19 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import bg.qponer.android.QponerApp
 import bg.qponer.android.R
+import bg.qponer.android.ui.activityViewModelsUsingAppFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
 
-    private val loginViewModel by activityViewModels<LoginViewModel> {
-        (requireContext().applicationContext as QponerApp).viewModelFactory
-    }
+    private val loginViewModel by activityViewModelsUsingAppFactory<LoginViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

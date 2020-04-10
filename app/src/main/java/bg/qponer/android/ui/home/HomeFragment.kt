@@ -5,24 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import bg.qponer.android.QponerApp
 import bg.qponer.android.R
+import bg.qponer.android.ui.activityViewModelsUsingAppFactory
 import bg.qponer.android.ui.login.LoginViewModel
+import bg.qponer.android.ui.viewModelsUsingAppFactory
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
-    private val loginViewModel by activityViewModels<LoginViewModel> {
-        (requireContext().applicationContext as QponerApp).viewModelFactory
-    }
+    private val loginViewModel by activityViewModelsUsingAppFactory<LoginViewModel>()
 
-    private val homeViewModel by activityViewModels<HomeViewModel> {
-        (requireContext().applicationContext as QponerApp).viewModelFactory
-    }
+    private val homeViewModel by viewModelsUsingAppFactory<HomeViewModel>()
 
     private val voucherAdapter = VoucherAdapter()
 
