@@ -8,8 +8,8 @@
 
     <item
         android:id="@+id/navigation_businesses"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/title_business" />
 
     <item
         android:id="@+id/navigation_notifications"
