@@ -1,4 +1,4 @@
-package bg.qponer.android.data
+package bg.qponer.android.auth
 
 import bg.qponer.android.data.model.AuthenticatedUserModel
 

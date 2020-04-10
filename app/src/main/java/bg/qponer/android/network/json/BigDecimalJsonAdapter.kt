@@ -1,4 +1,4 @@
-package bg.qponer.android.data.dto.json
+package bg.qponer.android.network.json
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson

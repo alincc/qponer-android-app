@@ -1,7 +1,7 @@
 package bg.qponer.android.data.repository
 
 import bg.qponer.android.data.InvalidUserType
-import bg.qponer.android.data.SessionStore
+import bg.qponer.android.auth.SessionStore
 import bg.qponer.android.data.dto.LoginRequest
 import bg.qponer.android.data.dto.UserType
 import bg.qponer.android.data.model.AuthenticatedUserModel
