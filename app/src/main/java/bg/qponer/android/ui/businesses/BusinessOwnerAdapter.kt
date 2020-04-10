@@ -1,4 +1,4 @@
-package bg.qponer.android.ui.home
+package bg.qponer.android.ui.businesses
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +11,11 @@ import bg.qponer.android.R
 import bg.qponer.android.data.model.BusinessOwner
 import bg.qponer.android.databinding.ListItemBusinessOwnerBinding
 
-class BusinessOwnerAdapter : RecyclerView.Adapter<BusinessOwnerViewHolder>() {
+internal class BusinessOwnerAdapter : RecyclerView.Adapter<BusinessOwnerViewHolder>() {
 
-    private val differ = AsyncListDiffer(this, BusinessOwnerDiffCallback)
+    private val differ = AsyncListDiffer(this,
+        BusinessOwnerDiffCallback
+    )
 
     var onItemClickListener: Callback? = null
     var onItemLeaderButtonClickListener: Callback? = null
@@ -48,7 +50,7 @@ class BusinessOwnerAdapter : RecyclerView.Adapter<BusinessOwnerViewHolder>() {
 
 typealias Callback = ((BusinessOwner) -> Unit)
 
-class BusinessOwnerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+internal class BusinessOwnerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val itemViewDataBinding: ListItemBusinessOwnerBinding =
         DataBindingUtil.bind(itemView)
