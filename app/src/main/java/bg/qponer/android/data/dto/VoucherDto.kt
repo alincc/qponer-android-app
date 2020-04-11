@@ -11,3 +11,10 @@ data class VoucherResponse(
     val contributorName: String,
     val value: BigDecimal
 )
+
+@JsonClass(generateAdapter = true)
+data class VoucherTypeResponse(
+    val id: Long,
+    val name: String,
+    @Json(name = "value") val price: BigDecimal
+)

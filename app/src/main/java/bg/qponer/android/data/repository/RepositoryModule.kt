@@ -20,4 +20,6 @@ class RepositoryModule(
     fun createContributorRepository() = ContributorRepository(
         serviceModule.createContributorService()
     )
+
+    fun createVoucherRepository() = VoucherRepository(serviceModule.createVoucherService())
 }

@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import bg.qponer.android.R
 import bg.qponer.android.data.model.BusinessOwner
-import bg.qponer.android.databinding.ListItemBusinessOwnerBinding
+import bg.qponer.android.databinding.ListItemBusinessBinding
 
 internal class BusinessOwnerAdapter : RecyclerView.Adapter<BusinessOwnerViewHolder>() {
 
-    private val differ = AsyncListDiffer(this,
+    private val differ = AsyncListDiffer(
+        this,
         BusinessOwnerDiffCallback
     )
 
@@ -35,7 +36,7 @@ internal class BusinessOwnerAdapter : RecyclerView.Adapter<BusinessOwnerViewHold
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BusinessOwnerViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item_business_owner, parent, false)
+            .inflate(R.layout.list_item_business, parent, false)
         return BusinessOwnerViewHolder(itemView)
     }
 
@@ -52,7 +53,7 @@ typealias Callback = ((BusinessOwner) -> Unit)
 
 internal class BusinessOwnerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val itemViewDataBinding: ListItemBusinessOwnerBinding =
+    private val itemViewDataBinding: ListItemBusinessBinding =
         DataBindingUtil.bind(itemView)
             ?: throw IllegalStateException("No binding for item view")
 

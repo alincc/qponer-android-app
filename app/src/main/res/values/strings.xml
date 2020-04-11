@@ -8,6 +8,9 @@
 
 
     <string name="title_home">Начало</string>
+
     <string name="title_business">Търсене</string>
+    <string name="business_details_buy_voucher_title">Закупи ваучер</string>
+
     <string name="title_notifications">Notifications</string>
 </resources>

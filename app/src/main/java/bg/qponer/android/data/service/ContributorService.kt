@@ -7,6 +7,6 @@ import retrofit2.http.Path
 interface ContributorService {
 
     @GET("api/v1/contributors/{id}/vouchers")
-    suspend fun findVouchers(@Path("id") id: Long): List<VoucherResponse>
+    suspend fun getVouchers(@Path("id") id: Long): List<VoucherResponse>
 
 }

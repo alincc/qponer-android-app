@@ -9,7 +9,7 @@ class ContributorRepository(
 ) {
 
     suspend fun findAllVouchers(userId: Long): Result<List<Voucher>> = runServiceMethod {
-        contributorService.findVouchers(userId)
+        contributorService.getVouchers(userId)
             .map {
                 Voucher(
                     it.id,

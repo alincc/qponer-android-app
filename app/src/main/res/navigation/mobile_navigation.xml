@@ -18,9 +18,14 @@
 
     <fragment
         android:id="@+id/navigation_businesses"
-        android:name="bg.qponer.android.ui.businesses.BusinessesFragment"
+        android:name="bg.qponer.android.ui.businesses.BusinessListFragment"
         android:label="Search"
-        tools:layout="@layout/fragment_businesses" />
+        tools:layout="@layout/fragment_business_list" />
+
+    <fragment
+        android:id="@+id/navigation_business_details"
+        android:name="bg.qponer.android.ui.businesses.BusinessDetailsFragment"
+        tools:layout="@layout/fragment_business_details" />
 
     <fragment
         android:id="@+id/navigation_notifications"

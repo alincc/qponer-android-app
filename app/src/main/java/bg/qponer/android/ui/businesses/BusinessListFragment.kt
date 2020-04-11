@@ -7,23 +7,21 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import bg.qponer.android.R
-import bg.qponer.android.ui.viewModelsUsingAppFactory
-import kotlinx.android.synthetic.main.fragment_businesses.*
+import bg.qponer.android.ui.activityViewModelsUsingAppFactory
+import kotlinx.android.synthetic.main.fragment_business_list.*
 
-class BusinessesFragment : Fragment() {
+class BusinessListFragment : Fragment() {
 
-    private val businessViewModel by viewModelsUsingAppFactory<BusinessesViewModel>()
+    private val businessViewModel by activityViewModelsUsingAppFactory<BusinessSharedViewModel>()
 
     private val businessOwnerAdapter = BusinessOwnerAdapter()
         .apply {
             onItemClickListener = { business ->
-                Toast.makeText(
-                    requireContext(),
-                    "Business clicked: ${business.businessName}",
-                    Toast.LENGTH_SHORT
-                ).show()
+                businessViewModel.select(business)
+                findNavController().navigate(R.id.navigation_business_details)
             }
             onItemLeaderButtonClickListener = { business ->
                 Toast.makeText(
@@ -51,7 +49,7 @@ class BusinessesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_businesses, container, false)
+        return inflater.inflate(R.layout.fragment_business_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

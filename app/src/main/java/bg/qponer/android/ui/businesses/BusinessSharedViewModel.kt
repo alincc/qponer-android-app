@@ -1,15 +1,13 @@
 package bg.qponer.android.ui.businesses
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
+import androidx.lifecycle.*
+import bg.qponer.android.data.model.BusinessOwner
 import bg.qponer.android.data.repository.BusinessOwnerRepository
 import bg.qponer.android.util.Result
 import kotlinx.coroutines.Dispatchers
 
-class BusinessesViewModel(
+class BusinessSharedViewModel(
     private val businessOwnerRepo: BusinessOwnerRepository
 ) : ViewModel() {
 
@@ -31,5 +29,12 @@ class BusinessesViewModel(
                 )
             }
         }
+    }
+
+    private val _selectedItem = MutableLiveData<BusinessOwner>()
+    var selectedItem: LiveData<BusinessOwner> = _selectedItem
+
+    fun select(item: BusinessOwner) {
+        _selectedItem.value = item
     }
 }

@@ -14,4 +14,6 @@ class ServiceModule(
     fun createContributorService(): ContributorService =
         networkModule.retrofit.create(ContributorService::class.java)
 
+    fun createVoucherService(): VoucherService =
+        networkModule.retrofit.create(VoucherService::class.java)
 }

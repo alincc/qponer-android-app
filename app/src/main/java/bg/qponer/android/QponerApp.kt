@@ -7,7 +7,7 @@ import bg.qponer.android.auth.AuthModule
 import bg.qponer.android.data.repository.RepositoryModule
 import bg.qponer.android.data.service.ServiceModule
 import bg.qponer.android.network.NetworkModule
-import bg.qponer.android.ui.businesses.BusinessesViewModel
+import bg.qponer.android.ui.businesses.BusinessSharedViewModel
 import bg.qponer.android.ui.home.HomeViewModel
 import bg.qponer.android.ui.login.LoginViewModel
 
@@ -35,7 +35,7 @@ class ViewModelFactory(
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
         when (modelClass) {
             LoginViewModel::class.java -> LoginViewModel(repoModule.createAuthRepository())
-            BusinessesViewModel::class.java -> BusinessesViewModel(
+            BusinessSharedViewModel::class.java -> BusinessSharedViewModel(
                 repoModule.createBusinessOwnerRepository()
             )
             HomeViewModel::class.java -> HomeViewModel(repoModule.createContributorRepository())
