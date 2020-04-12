@@ -8,8 +8,8 @@ class ServiceModule(
 
     fun createAuthService(): AuthService = networkModule.retrofit.create(AuthService::class.java)
 
-    fun createBusinessOwnerService(): BusinessOwnerService =
-        networkModule.retrofit.create(BusinessOwnerService::class.java)
+    fun createBusinessOwnerService(): BusinessService =
+        networkModule.retrofit.create(BusinessService::class.java)
 
     fun createContributorService(): ContributorService =
         networkModule.retrofit.create(ContributorService::class.java)

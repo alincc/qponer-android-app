@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import bg.qponer.android.R
-import bg.qponer.android.data.model.BusinessOwner
+import bg.qponer.android.data.model.Business
 import bg.qponer.android.databinding.ListItemBusinessBinding
 
 internal class BusinessOwnerAdapter : RecyclerView.Adapter<BusinessOwnerViewHolder>() {
@@ -32,7 +32,7 @@ internal class BusinessOwnerAdapter : RecyclerView.Adapter<BusinessOwnerViewHold
         return differ.currentList[position].id
     }
 
-    fun setData(data: List<BusinessOwner>) = differ.submitList(data)
+    fun setData(data: List<Business>) = differ.submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BusinessOwnerViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -49,7 +49,7 @@ internal class BusinessOwnerAdapter : RecyclerView.Adapter<BusinessOwnerViewHold
         )
 }
 
-typealias Callback = ((BusinessOwner) -> Unit)
+typealias Callback = ((Business) -> Unit)
 
 internal class BusinessOwnerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -58,7 +58,7 @@ internal class BusinessOwnerViewHolder(itemView: View) : RecyclerView.ViewHolder
             ?: throw IllegalStateException("No binding for item view")
 
     fun bind(
-        item: BusinessOwner,
+        item: Business,
         onClickListener: Callback?,
         onItemLeaderButtonClickListener: Callback?,
         onItemBuyVoucherClickListener: Callback?
@@ -87,12 +87,12 @@ internal class BusinessOwnerViewHolder(itemView: View) : RecyclerView.ViewHolder
 
 }
 
-private object BusinessOwnerDiffCallback : DiffUtil.ItemCallback<BusinessOwner>() {
+private object BusinessOwnerDiffCallback : DiffUtil.ItemCallback<Business>() {
 
-    override fun areItemsTheSame(oldItem: BusinessOwner, newItem: BusinessOwner) =
+    override fun areItemsTheSame(oldItem: Business, newItem: Business) =
         oldItem.id == newItem.id
 
 
-    override fun areContentsTheSame(oldItem: BusinessOwner, newItem: BusinessOwner) =
+    override fun areContentsTheSame(oldItem: Business, newItem: Business) =
         oldItem == newItem
 }

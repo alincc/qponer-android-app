@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="item"
-            type="bg.qponer.android.data.model.BusinessOwner" />
+            type="bg.qponer.android.data.model.Business" />
     </data>
 
     <com.google.android.material.card.MaterialCardView xmlns:tools="http://schemas.android.com/tools"
@@ -22,7 +23,7 @@
                 android:id="@+id/businessOwnerAvatar"
                 android:layout_width="0dp"
                 android:layout_height="194dp"
-                android:imageUrl="@{item.avatarUrl}"
+                android:imageUrl="@{item.pictureUrl}"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +40,7 @@
                 android:drawableStart="@drawable/ic_local_bar_black_24dp"
                 android:drawablePadding="8dp"
                 android:includeFontPadding="false"
-                android:text="@{item.businessName}"
+                android:text="@{item.name}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +54,7 @@
                 android:layout_marginTop="16dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="@{item.businessDescription}"
+                android:text="@{item.description}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                 app:layout_constraintEnd_toEndOf="@id/businessOwnerNameTextView"
                 app:layout_constraintStart_toStartOf="@id/businessOwnerNameTextView"

@@ -1,22 +1,22 @@
 package bg.qponer.android.data.repository
 
 import bg.qponer.android.data.dto.BusinessTypeDto
-import bg.qponer.android.data.model.BusinessOwner
+import bg.qponer.android.data.model.Business
 import bg.qponer.android.data.model.BusinessType
 import bg.qponer.android.data.model.RankedContributor
-import bg.qponer.android.data.service.BusinessOwnerService
+import bg.qponer.android.data.service.BusinessService
 import bg.qponer.android.util.Result
 
 class BusinessOwnerRepository(
-    private val businessOwnerService: BusinessOwnerService
+    private val businessService: BusinessService
 ) {
 
-    suspend fun findBusinessOwners(): Result<List<BusinessOwner>> = runServiceMethod {
-        businessOwnerService.findBusinessOwners()
+    suspend fun findBusinessOwners(): Result<List<Business>> = runServiceMethod {
+        businessService.findBusinessOwners()
             .map { ownerResponse ->
                 val topContributors =
-                    businessOwnerService.findTopContributorsForBusiness(ownerResponse.id)
-                BusinessOwner(
+                    businessService.findTopContributorsForBusiness(ownerResponse.id)
+                Business(
                     id = ownerResponse.id,
                     businessName = ownerResponse.businessName,
                     businessDescription = ownerResponse.businessDescription,

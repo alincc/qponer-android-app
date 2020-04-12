@@ -19,6 +19,7 @@ fun TextView.setDrawableForBusinessType(type: BusinessType) {
         BusinessType.BAR -> R.drawable.ic_local_bar_black_24dp
         BusinessType.RESTAURANT -> R.drawable.ic_restaurant_black_24dp
         BusinessType.DISCO -> R.drawable.ic_music_note_black_24dp
+        BusinessType.CAFE -> R.drawable.ic_music_note_black_24dp
     }
     setCompoundDrawablesRelativeWithIntrinsicBounds(imageResId, 0, 0, 0)
 }

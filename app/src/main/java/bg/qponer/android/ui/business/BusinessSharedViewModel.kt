@@ -2,7 +2,7 @@ package bg.qponer.android.ui.business
 
 import android.util.Log
 import androidx.lifecycle.*
-import bg.qponer.android.data.model.BusinessOwner
+import bg.qponer.android.data.model.Business
 import bg.qponer.android.data.repository.BusinessOwnerRepository
 import bg.qponer.android.util.Result
 import kotlinx.coroutines.Dispatchers
@@ -31,10 +31,10 @@ class BusinessSharedViewModel(
         }
     }
 
-    private val _selectedItem = MutableLiveData<BusinessOwner>()
-    var selectedItem: LiveData<BusinessOwner> = _selectedItem
+    private val _selectedItem = MutableLiveData<Business>()
+    var selectedItem: LiveData<Business> = _selectedItem
 
-    fun select(item: BusinessOwner) {
+    fun select(item: Business) {
         _selectedItem.value = item
     }
 }

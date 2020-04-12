@@ -4,16 +4,20 @@ import com.squareup.moshi.JsonClass
 import java.math.BigDecimal
 
 @JsonClass(generateAdapter = true)
-data class BusinessOwnerResponse(
+data class BusinessResponse(
     val id: Long,
-    val businessName: String,
-    val businessDescription: String,
-    val avatarUrl: String?,
-    val type: BusinessTypeDto
+    val phone: String,
+    val logoUrl: String? = null,
+    val pictureUrl: String? = null,
+    val type: BusinessTypeDto,
+    val name: String,
+    val description: String,
+    val additionalBenefits: String,
+    val websiteUrl: String
 )
 
 enum class BusinessTypeDto {
-    RESTAURANT, BAR, DISCO
+    RESTAURANT, BAR, DISCO, CAFE
 }
 
 @JsonClass(generateAdapter = true)
