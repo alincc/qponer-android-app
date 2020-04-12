@@ -55,15 +55,15 @@
             app:layout_constraintTop_toBottomOf="@id/businessNameTextView"
             tools:text="Тип: българска модерна кухня" />
 
-        <TextView
-            android:id="@+id/buyVoucherTitleTextView"
+        <Button
+            android:id="@+id/buyVoucherButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/business_details_buy_voucher_title"
+            android:text="@string/business_details_buy_voucher_button_text"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/center_vertical_guideline"
             app:layout_constraintTop_toBottomOf="@id/businessDescriptionTextView" />
 
 

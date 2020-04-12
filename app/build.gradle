@@ -59,6 +59,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 
+    // Material Spinner
+    implementation 'com.github.tiper:MaterialSpinner:1.4.1'
+
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-moshi:2.8.1'

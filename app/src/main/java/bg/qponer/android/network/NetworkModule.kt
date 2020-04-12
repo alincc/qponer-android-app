@@ -33,7 +33,7 @@ class NetworkModule(
 
         return Retrofit.Builder()
             .client(httpClient)
-            .baseUrl("http://192.168.0.105:8080")
+            .baseUrl("http://ec2-54-93-52-24.eu-central-1.compute.amazonaws.com:8080")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }

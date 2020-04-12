@@ -10,7 +10,11 @@
     <string name="title_home">Начало</string>
 
     <string name="title_business">Търсене</string>
-    <string name="business_details_buy_voucher_title">Закупи ваучер</string>
+    <string name="business_details_buy_voucher_button_text">Купи ваучер</string>
+    <string name="buy_voucher_voucher_spinner_hint">Избери ваучер</string>
+    <string name="buy_voucher_card_spinner_hint">Избери карта</string>
+    <string name="buy_voucher_buy_button_text">Купи</string>
+
 
     <string name="title_notifications">Notifications</string>
 </resources>

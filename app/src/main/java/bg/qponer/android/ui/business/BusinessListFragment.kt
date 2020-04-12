@@ -1,4 +1,4 @@
-package bg.qponer.android.ui.businesses
+package bg.qponer.android.ui.business
 
 import android.os.Bundle
 import android.view.LayoutInflater

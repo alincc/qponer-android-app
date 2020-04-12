@@ -7,7 +7,7 @@ import bg.qponer.android.auth.AuthModule
 import bg.qponer.android.data.repository.RepositoryModule
 import bg.qponer.android.data.service.ServiceModule
 import bg.qponer.android.network.NetworkModule
-import bg.qponer.android.ui.businesses.BusinessSharedViewModel
+import bg.qponer.android.ui.business.BusinessSharedViewModel
 import bg.qponer.android.ui.home.HomeViewModel
 import bg.qponer.android.ui.login.LoginViewModel
 
