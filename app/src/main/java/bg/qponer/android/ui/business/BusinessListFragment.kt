@@ -26,14 +26,14 @@ class BusinessListFragment : Fragment() {
             onItemLeaderButtonClickListener = { business ->
                 Toast.makeText(
                     requireContext(),
-                    "Business view leaders clicked: ${business.businessName}",
+                    "Business view leaders clicked: ${business.name}",
                     Toast.LENGTH_SHORT
                 ).show()
             }
             onItemBuyVoucherClickListener = { business ->
                 Toast.makeText(
                     requireContext(),
-                    "Business buy voucher clicked: ${business.businessName}",
+                    "Business buy voucher clicked: ${business.name}",
                     Toast.LENGTH_SHORT
                 ).show()
             }

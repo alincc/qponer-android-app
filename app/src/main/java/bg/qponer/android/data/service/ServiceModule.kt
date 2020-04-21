@@ -16,4 +16,7 @@ class ServiceModule(
 
     fun createVoucherService(): VoucherService =
         networkModule.retrofit.create(VoucherService::class.java)
+
+    fun createCardService(): CardService =
+        networkModule.retrofit.create(CardService::class.java)
 }

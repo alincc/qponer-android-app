@@ -1,6 +1,5 @@
 package bg.qponer.android.data.model
 
-import bg.qponer.android.data.dto.BusinessTypeDto
 import java.math.BigDecimal
 
 data class Business(
