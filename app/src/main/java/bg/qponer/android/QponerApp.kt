@@ -20,7 +20,7 @@ class QponerApp : Application() {
         super.onCreate()
 
         val authModule = AuthModule(this)
-        val networkModule = NetworkModule(authModule)
+        val networkModule = NetworkModule(this, authModule)
         val serviceModule = ServiceModule(networkModule)
         val repoModule = RepositoryModule(serviceModule, authModule)
         viewModelFactory = ViewModelFactory(repoModule)
