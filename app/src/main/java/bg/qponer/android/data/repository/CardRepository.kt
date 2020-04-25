@@ -6,7 +6,6 @@ import bg.qponer.android.data.model.Card
 import bg.qponer.android.data.model.CardRegistrationData
 import bg.qponer.android.data.service.CardService
 import bg.qponer.android.util.Result
-import com.mangopay.android.sdk.model.CardRegistration
 
 class CardRepository(
     private val cardService: CardService,
@@ -17,7 +16,7 @@ class CardRepository(
         val userId =
             sessionStore.user?.userId ?: throw IllegalStateException("Invalid user session")
 
-        cardService.createCardRegistration(userId)
+        cardService.getCardRegistrationDetails(userId)
             .let {
                 CardRegistrationData(
                     accessKey = it.accessKey,
@@ -32,18 +31,17 @@ class CardRepository(
     }
 
     suspend fun finishRegistration(
-        cardRegistrationId: Long,
-        cardRegistrationData: String,
+        cardId: String,
         number: String,
         expiryDate: String
     ): Result<Card> = runServiceMethod {
         val userId = sessionStore.user?.userId ?: throw IllegalStateException("Invalid user session")
         val cardRegistrationRequest = CardRegistrationRequest(
-            cardRegistrationData,
+            cardId,
             number,
             expiryDate
         )
-        cardService.finishCardRegistration(userId, cardRegistrationId, cardRegistrationRequest)
+        cardService.createCard(userId, cardRegistrationRequest)
             .let {
                 Card(
                     id = it.id,

@@ -22,7 +22,7 @@ data class CardRegistrationResponse(
 
 @JsonClass(generateAdapter = true)
 data class CardRegistrationRequest(
-    val registrationData: String,
+    val cardId: String,
     val number: String,
     val expiryDate: String
 )

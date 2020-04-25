@@ -64,8 +64,7 @@ class AddCardViewModel(
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 cardRepo.finishRegistration(
-                    cardRegistration.id.toLong(),
-                    cardRegistration.registrationData,
+                    cardRegistration.cardId,
                     _number.value!!,
                     _expiryDate.value!!
                 )
