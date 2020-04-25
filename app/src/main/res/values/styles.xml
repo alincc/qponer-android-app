@@ -1,11 +1,39 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+    <style name="Theme.Qpon" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:background">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+
+        <item name="colorSurface">@color/colorBackground</item>
+        <item name="colorOnSurface">@color/colorOnBackground</item>
+
+        <item name="textInputStyle">@style/Widget.Qpon.TextInputLayout</item>
+        <item name="materialButtonStyle">@style/Widget.Qpon.Button</item>
+    </style>
+
+    <!-- Bottom Navigation View -->
+    <style name="Widget.Qpon.BottomNavigationView" parent="@style/Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/colorBottomNavigationBackground</item>
+    </style>
+
+    <!-- Text Input -->
+    <style name="Widget.Qpon.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Qpon.TextInputLayout</item>
+    </style>
+    
+    <style name="ThemeOverlay.Qpon.TextInputLayout" parent="">
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox</item>
+    </style>
+
+    <!-- Button -->
+    <style name="Widget.Qpon.Button" parent="@style/Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/colorButtonBackground</item>
     </style>
 
 </resources>

@@ -1,21 +1,21 @@
 package bg.qponer.android.ui.login
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.addCallback
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import bg.qponer.android.R
+import bg.qponer.android.databinding.FragmentLoginBinding
 import bg.qponer.android.ui.activityViewModelsUsingAppFactory
+import bg.qponer.android.ui.core.BaseFragment
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.fragment_login.*
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
 
-    private val loginViewModel by activityViewModelsUsingAppFactory<LoginViewModel>()
+    override val layoutResId = R.layout.fragment_login
+
+    override val viewModel by activityViewModelsUsingAppFactory<LoginViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,23 +23,8 @@ class LoginFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback { /* do nothing */ }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_login, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        loginButton.setOnClickListener {
-            loginViewModel.login(
-                usernameField.text.toString(),
-                passwordField.text.toString()
-            )
-        }
-
-        loginViewModel.authenticationState.observe(viewLifecycleOwner, Observer {
+        viewModel.authenticationState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is LoginViewModel.AuthenticationState.Unauthenticated -> { /* do nothing */
                 }
@@ -56,4 +41,5 @@ class LoginFragment : Fragment() {
         "Could not login. Please, try again later",
         Snackbar.LENGTH_SHORT
     ).show()
+
 }
