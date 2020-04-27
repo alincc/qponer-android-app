@@ -5,22 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import bg.qponer.android.R
+import bg.qponer.android.databinding.FragmentBusinessListBinding
 import bg.qponer.android.ui.activityViewModelsUsingAppFactory
-import kotlinx.android.synthetic.main.fragment_business_list.*
+import bg.qponer.android.ui.core.BaseFragment
 
-class BusinessListFragment : Fragment() {
+class BusinessListFragment : BaseFragment<FragmentBusinessListBinding, BusinessSharedViewModel>() {
 
-    private val businessViewModel by activityViewModelsUsingAppFactory<BusinessSharedViewModel>()
+    override val layoutResId: Int = R.layout.fragment_business_list
+
+    override val viewModel by activityViewModelsUsingAppFactory<BusinessSharedViewModel>()
 
     private val businessOwnerAdapter = BusinessOwnerAdapter()
         .apply {
             onItemClickListener = { business ->
-                businessViewModel.select(business)
+                viewModel.select(business)
                 findNavController().navigate(R.id.navigation_business_details)
             }
             onItemLeaderButtonClickListener = { business ->
@@ -44,27 +46,22 @@ class BusinessListFragment : Fragment() {
         loadOwners()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_business_list, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        businessOwnerList.apply {
+        dataBinding.businessOwnerList.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = businessOwnerAdapter
         }
 
-        businessViewModel.businessOwners.observe(viewLifecycleOwner, Observer {
+        viewModel.businessOwners.observe(viewLifecycleOwner, Observer {
             businessOwnerAdapter.setData(it)
         })
     }
 
+    override fun onCreateAppBarView(inflater: LayoutInflater, container: ViewGroup?): View? =
+        inflater.inflate(R.layout.toolbar_business_list, container, false)
+    
     private fun loadOwners() {
-        businessViewModel.filter = ""
+        viewModel.filter = ""
     }
 
 

@@ -54,8 +54,8 @@ class NetworkModule(
 
         return Retrofit.Builder()
             .client(httpClient)
-            .baseUrl(BASE_URL)
-//            .baseUrl("http://192.168.0.105:8080")
+//            .baseUrl(BASE_URL)
+            .baseUrl("http://192.168.0.105:8080")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }

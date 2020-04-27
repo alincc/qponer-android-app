@@ -59,7 +59,7 @@
             app:layout_constraintEnd_toEndOf="@id/usernameContainer"
             app:layout_constraintStart_toStartOf="@id/usernameContainer"
             app:layout_constraintTop_toBottomOf="@id/usernameContainer"
-            app:passwordToggleEnabled="true">
+            app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordField"

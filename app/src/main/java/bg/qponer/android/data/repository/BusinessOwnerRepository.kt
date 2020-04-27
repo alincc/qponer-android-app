@@ -20,7 +20,7 @@ class BusinessOwnerRepository(
                     id = ownerResponse.id,
                     phone = ownerResponse.phone,
                     logoUrl = ownerResponse.logoUrl,
-                    pictureUrl = ownerResponse.pictureUrl,
+                    pictureUrl = "https://picsum.photos/200/300",
                     type = ownerResponse.type.map(),
                     name = ownerResponse.name,
                     description = ownerResponse.description,

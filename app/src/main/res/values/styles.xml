@@ -15,6 +15,9 @@
 
         <item name="textInputStyle">@style/Widget.Qpon.TextInputLayout</item>
         <item name="materialButtonStyle">@style/Widget.Qpon.Button</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <!-- Bottom Navigation View -->
@@ -29,6 +32,22 @@
     
     <style name="ThemeOverlay.Qpon.TextInputLayout" parent="">
         <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox</item>
+    </style>
+
+    <style name="Widget.Qpon.SearchTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Qpon.SearchTextInputLayout</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Qpon.TextInputLayout.Rounded</item>
+    </style>
+
+    <style name="ThemeOverlay.Qpon.SearchTextInputLayout" parent="">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="colorPrimary">@color/colorSearchBorder</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Qpon.TextInputLayout.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
     </style>
 
     <!-- Button -->

@@ -10,4 +10,6 @@
     <color name="colorBottomNavigationBackground">#F9F9F9</color>
 
     <color name="colorButtonBackground">#151A46</color>
+
+    <color name="colorSearchBorder">#C4C4C4</color>
 </resources>
