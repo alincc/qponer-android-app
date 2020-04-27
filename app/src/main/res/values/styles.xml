@@ -1,11 +1,58 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+    <style name="Theme.Qpon" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:background">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+
+        <item name="colorSurface">@color/colorBackground</item>
+        <item name="colorOnSurface">@color/colorOnBackground</item>
+
+        <item name="textInputStyle">@style/Widget.Qpon.TextInputLayout</item>
+        <item name="materialButtonStyle">@style/Widget.Qpon.Button</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Bottom Navigation View -->
+    <style name="Widget.Qpon.BottomNavigationView" parent="@style/Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/colorBottomNavigationBackground</item>
+    </style>
+
+    <!-- Text Input -->
+    <style name="Widget.Qpon.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Qpon.TextInputLayout</item>
+    </style>
+    
+    <style name="ThemeOverlay.Qpon.TextInputLayout" parent="">
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox</item>
+    </style>
+
+    <style name="Widget.Qpon.SearchTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Qpon.SearchTextInputLayout</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Qpon.TextInputLayout.Rounded</item>
+    </style>
+
+    <style name="ThemeOverlay.Qpon.SearchTextInputLayout" parent="">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="colorPrimary">@color/colorSearchBorder</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Qpon.TextInputLayout.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <!-- Button -->
+    <style name="Widget.Qpon.Button" parent="@style/Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/colorButtonBackground</item>
     </style>
 
 </resources>

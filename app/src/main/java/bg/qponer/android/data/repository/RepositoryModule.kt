@@ -22,4 +22,9 @@ class RepositoryModule(
     )
 
     fun createVoucherRepository() = VoucherRepository(serviceModule.createVoucherService())
+
+    fun createCardRepository() = CardRepository(
+        serviceModule.createCardService(),
+        authModule.session
+    )
 }

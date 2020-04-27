@@ -18,9 +18,14 @@ class BusinessOwnerRepository(
                     businessService.findTopContributorsForBusiness(ownerResponse.id)
                 Business(
                     id = ownerResponse.id,
-                    businessName = ownerResponse.businessName,
-                    businessDescription = ownerResponse.businessDescription,
+                    phone = ownerResponse.phone,
+                    logoUrl = ownerResponse.logoUrl,
+                    pictureUrl = "https://picsum.photos/200/300",
                     type = ownerResponse.type.map(),
+                    name = ownerResponse.name,
+                    description = ownerResponse.description,
+                    additionalBenefits = ownerResponse.additionalBenefits,
+                    websiteUrl = ownerResponse.websiteUrl,
                     topContributors = topContributors.map { RankedContributor(it.name, it.amount) }
                 )
             }
@@ -31,5 +36,6 @@ class BusinessOwnerRepository(
             BusinessTypeDto.BAR -> BusinessType.BAR
             BusinessTypeDto.DISCO -> BusinessType.DISCO
             BusinessTypeDto.RESTAURANT -> BusinessType.RESTAURANT
+            BusinessTypeDto.CAFE -> BusinessType.CAFE
         }
 }

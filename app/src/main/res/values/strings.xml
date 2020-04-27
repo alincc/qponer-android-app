@@ -15,6 +15,10 @@
     <string name="buy_voucher_card_spinner_hint">Избери карта</string>
     <string name="buy_voucher_buy_button_text">Купи</string>
 
+    <string name="add_card_card_number_hint">Номер на карта</string>
+    <string name="add_card_card_expiry_date_hint">ммгг</string>
+    <string name="add_card_cvv_hint">CVV</string>
+    <string name="add_card_save_button_text">Запази</string>
 
     <string name="title_notifications">Notifications</string>
 </resources>
